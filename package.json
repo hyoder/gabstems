@@ -1,0 +1,18 @@
+{
+    "scripts":
+    {
+      "start": "node server.js"
+    },
+    "dependencies":
+    {
+      "express": "4.18.1",
+      "serve-favicon": "2.5.0",
+      "mime": "3.0.0",
+      "path": "0.12.7"
+    },
+    "engines":
+    {
+      "node": "16.17.0"
+    }
+  }
+  
