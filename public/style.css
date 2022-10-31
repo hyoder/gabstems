@@ -1,0 +1,43 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    animation: scrolling 5s linear infinite;
+    animation-play-state: paused;
+}
+@keyframes scrolling { from { background-position: 0 0; } to { background-position: -500px -500px;} }
+#vis
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#meta
+{
+    position: relative;
+    top: 20%;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Source Code Pro', monospace;
+    z-index: 10;
+    transform: translate(0,200px);
+    background-color: rgba(150,150,150,.3)
+}
+button
+{
+    display: inline-block;
+    width: 210px;
+    height: 25px;
+}
+#canvas { position: absolute; }
+#inputtable
+{
+    margin: auto;
+    width: 210px;
+    transform: translate(0,225px)
+}
+td { width: 210px; height: 25px; }
