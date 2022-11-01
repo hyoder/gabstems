@@ -7,7 +7,6 @@ const  canvas = document.getElementById( "canvas" ),
           tbl = document.getElementById( 'inputtbl' );
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-document.body.style = 'background-image: "./assets/images/source.jpeg";'
 let source = context.createMediaElementSource( audio ),
   analyzer = context.createAnalyser();
 source.connect( analyzer );
