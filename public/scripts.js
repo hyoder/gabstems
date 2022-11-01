@@ -36,7 +36,7 @@ control.addEventListener('click', () =>
 {
     if( control.innerHTML === 'i\'m feeling lucky' )
     {
-        let x = Math.random() * 6;
+        let x = Math.floor( Math.random() * 6 );
         console.log(x);
         let y = inputs[x];
         console.log(y);
@@ -44,10 +44,9 @@ control.addEventListener('click', () =>
         console.log(z);
         console.log(z.innerHTML);
         setsong( z.innerHTML );
-        control.innerHTML = 'play!';
     }
-    if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
-    if( control.dataset.state === 'off' )
+    else if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
+    else if( control.dataset.state === 'off' )
     {
         document.body.style.animationPlayState = 'running';
         control.dataset.state = 'on';
@@ -70,11 +69,14 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
-    document.body.style.animationPlayState = 'paused';
-    control.dataset.state = 'off';
-    control.innerHTML = 'play!';
-    track1.pause();
-    if( stems ) { track2.pause(); }
+    if( control.dataset.state === 'on' )
+    {
+        document.body.style.animationPlayState = 'paused';
+        control.dataset.state = 'off';
+        control.innerHTML = 'play!';
+        track1.pause();
+        if( stems ) { track2.pause(); }
+    }
     track1 = new Audio(),
     track2 = new Audio(),
     t1ctx = new window.AudioContext(),
