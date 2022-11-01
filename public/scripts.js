@@ -27,41 +27,28 @@ window.onclick = function(event)
 track1.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
-    control.dataset.state = 'off';
+    //control.dataset.state = 'off';
     control.innerHTML = 'play again?';
-    readvals();
     console.log('ended');
 }, false );
 control.addEventListener('click', () => 
 {
-    if( control.innerHTML === 'i\'m feeling lucky' )
-    {
-        let x = Math.floor( Math.random() * 6 );
-        console.log(x);
-        let y = inputs[x];
-        console.log(y);
-        let z = document.getElementById(y);
-        console.log(z);
-        console.log(z.innerHTML);
-        let a = setsong( z.innerHTML );
-    }
+    if( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.floor( Math.random() * 6 ) ] ).innerHTML ); }
     if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
-    else if( control.dataset.state === 'off' )
+    else if( control.innerHTML === 'play!' )
     {
         document.body.style.animationPlayState = 'running';
-        control.dataset.state = 'on';
+        //control.dataset.state = 'on';
         control.innerHTML = 'pause!';
-        readvals();
         track1.play();
         if( stems ) { track2.play(); }
         console.log('play');
     }
-    else if( control.dataset.state === 'on' )
+    else if( control.innerHTML === 'pause!' )
     {
         document.body.style.animationPlayState = 'paused';
-        control.dataset.state = 'off';
+        //control.dataset.state = 'off';
         control.innerHTML = 'play!';
-        readvals();
         track1.pause();
         if( stems ) { track2.pause(); }
         console.log('pause');
@@ -69,10 +56,10 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
-    if( control.dataset.state === 'on' )
+    if( control.innerHTML === 'pause!' )
     {
         document.body.style.animationPlayState = 'paused';
-        control.dataset.state = 'off';
+        //control.dataset.state = 'off';
         control.innerHTML = 'play!';
         track1.pause();
         if( stems ) { track2.pause(); }
@@ -170,12 +157,11 @@ function setsong(title)
         t2data  = new Uint8Array( t2buff ),
         t2width = canvas.width / t2buff;
     }
-    readvals();
     animate(); 
 }
 function animate()
 {
-    if( control.dataset.state === 'on' )
+    if( control.innerHTML === 'pause!' )
     {
         if( stems )
         {
@@ -208,18 +194,5 @@ function animate()
         }
     }
     requestAnimationFrame(animate);
-}
-function readvals()
-{
-    if( control.dataset.state === 'off' )
-    {
-    }
-    if( control.dataset.state === 'on' )
-    {
-            speed = document.getElementById( "sp" ).value /  bpm;
-        tbl.innerHTML = '';
-    }
-    track1.playbackRate = speed;
-    if( stems ) { track2.playbackRate = speed; }
 }
 window.onload = function() {}
