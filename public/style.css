@@ -3,6 +3,7 @@ body { animation: scrolling 5s linear infinite; animation-play-state: paused; }
 button { display: inline-block; font-size: 24px; height: 50px; width: 210px; }
 td { height: 25px; width: 210px; }
 table { margin-left: auto; margin-right: auto; }
+#bpm-slider { margin-left: auto; margin-right: auto; top: 60%;}
 #canvas { position: absolute; }
 #inputtable { margin: auto; transform: translate(0,225px); width: 210px; }
 #meta
