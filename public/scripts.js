@@ -17,7 +17,7 @@ canvas.height = window.innerHeight;
 
 window.onclick = function(event)
 {
-    if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
+    if ( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
     else
     {
         dropdowns = document.getElementsByClassName( 'dropdown-content' );
@@ -27,41 +27,38 @@ window.onclick = function(event)
 track1.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
-    //control.dataset.state = 'off';
     control.innerHTML = 'play again?';
     console.log('ended');
 }, false );
 control.addEventListener('click', () => 
 {
-    if( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.floor( Math.random() * 6 ) ] ).innerHTML ); }
-    if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
-    else if( control.innerHTML === 'play!' )
+    if ( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.floor( Math.random() * 6 ) ] ).innerHTML ); }
+    if ( t1ctx.state === 'suspended' && !stems ) { t1ctx.resume(); }
+    else if ( t1ctx.state ==='suspended' && t2ctx.state ==='suspended' && stems ) { t1ctx.resume(); t2ctx.resume(); }
+    else if ( control.innerHTML === 'play!' )
     {
         document.body.style.animationPlayState = 'running';
-        //control.dataset.state = 'on';
         control.innerHTML = 'pause!';
-        track1.play();
-        if( stems ) { track2.play(); }
+        if ( stems ) { track1.play(); track2.play(); }
+        else { track1.play(); }
         console.log('play');
     }
-    else if( control.innerHTML === 'pause!' )
+    else if ( control.innerHTML === 'pause!' )
     {
         document.body.style.animationPlayState = 'paused';
-        //control.dataset.state = 'off';
         control.innerHTML = 'play!';
-        track1.pause();
-        if( stems ) { track2.pause(); }
+        if ( stems ) { track1.pause(); track2.pause(); }
+        else { track1.pause(); }
         console.log('pause');
     }
 }, false );
 function setsong(title)
 {
-    if( control.innerHTML === 'pause!' )
+    if ( control.innerHTML === 'pause!' )
     {
         document.body.style.animationPlayState = 'paused';
-        //control.dataset.state = 'off';
-        track1.pause();
-        if( stems ) { track2.pause(); }
+        if ( stems ) { track1.pause(); track2.pause(); }
+        else { track1.pause(); }
     }
     control.innerHTML = 'play!';
     track1 = new Audio(),
@@ -146,7 +143,7 @@ function setsong(title)
     t1buff  = t1anal.frequencyBinCount,
     t1data  = new Uint8Array( t1buff ),
     t1width = canvas.width / t1buff;
-    if( stems )
+    if ( stems )
     {
         t2src  = t2ctx.createMediaElementSource( track2 )
         t2anal = t2ctx.createAnalyser();
@@ -161,9 +158,9 @@ function setsong(title)
 }
 function animate()
 {
-    if( control.innerHTML === 'pause!' )
+    if ( control.innerHTML === 'pause!' )
     {
-        if( stems )
+        if ( stems )
         {
             var y = 0;
             ctx.clearRect( 0, 0, canvas.width, canvas.height );
