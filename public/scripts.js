@@ -138,32 +138,31 @@ function animate()
     {
         if( stems )
         {
-            var t1x = canvas.width / 2, t2x = canvas.width / 2;
+            var y = 0;
             ctx.clearRect( 0, 0, canvas.width, canvas.height );
             t1anal.getByteFrequencyData( t1data );
             t2anal.getByteFrequencyData( t2data );
             for ( let i = 0 ; i < t1buff ; i++ )
             {
-                let t1height = t1data[i]*2.5;
-                let t2height = t2data[i]*2.5;
+                let t1height = t1data[i]*1.5;
+                let t2height = t2data[i]*1.5;
                 ctx.fillStyle = "#000000";
-                ctx.fillRect( t1x, canvas.height - t1height, t1width, t1height );
-                ctx.fillRect( t2x - t2width, canvas.height - t2height, t2width, t2height );
-                t1x += t1width;
-                t2x -= t2width;
+                ctx.fillRect( 0, y, t1height, t1width );
+                ctx.fillRect( canvas.width - t2height, y, t2height, t2width );
+                y += t1width;
             }
         }
         else
         {
-            var t1x = 0;
+            var x = 0;
             ctx.clearRect( 0, 0, canvas.width, canvas.height );
             t1anal.getByteFrequencyData( t1data );
             for ( let i = 0 ; i < t1buff ; i++ )
             {
                 let t1height = t1data[i]*2.5;
                 ctx.fillStyle = "#000000";
-                ctx.fillRect( t1x, canvas.height - t1height, t1width, t1height );
-                t1x += t1width;
+                ctx.fillRect( x, canvas.height - t1height, t1width, t1height );
+                x += t1width;
             }
         }
     }
