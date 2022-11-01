@@ -1,26 +1,21 @@
-let     audio = new Audio();
-    audio.src = "./assets/audio/source.mp3";
 const  canvas = document.getElementById( "canvas" ),
+        t1ctx = new window.AudioContext(),
+        t2ctx = new window.AudioContext(),
       control = document.getElementById( "playbutton" ),
-      context = new window.AudioContext(),
           ctx = canvas.getContext('2d'),
-          tbl = document.getElementById( 'inputtbl' );
+          tbl = document.getElementById( 'inputtbl' ),
+     selector = document.getElementById( 'songinput' );
+let    track1 = new Audio(),
+       track2 = new Audio(),
+        stems = false,
+       volume = 1,
+        speed = 1,
+       colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ],
+          grd = readvals();
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-let source = context.createMediaElementSource( audio ),
-  analyzer = context.createAnalyser();
-source.connect( analyzer );
-analyzer.connect( context.destination );
-analyzer.fftSize = 512;
-let buflen = analyzer.frequencyBinCount,
-      data = new Uint8Array( buflen ),
-  barwidth = canvas.width / buflen,
-    volume = 1,
-     speed = 1,
-    colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ],
-       grd = readvals();
-document.body.style.background = 'url("./assets/images/source.jpeg")';
-audio.addEventListener('ended', () =>
+selector.addEventListener('click', () => { console.log(selector.innerHTML); setsong(selector.innerHTML); }, false);
+track1.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
     control.dataset.state = 'off';
@@ -30,39 +25,126 @@ audio.addEventListener('ended', () =>
 }, false );
 control.addEventListener('click', () => 
 {
-    if( context.state === 'suspended' ) { context.resume(); }
+    if( t1ctx.state === 'suspended' )
+    { 
+        t1ctx.resume();
+        if( stems ) { t2ctx.resume(); }
+    }
     if( control.dataset.state === 'off' )
     {
         document.body.style.animationPlayState = 'running';
-        audio.play();
         control.dataset.state = 'on';
         control.innerHTML = 'pause!';
         grd = readvals();
+        track1.play();
+        if( stems ) { track2.play(); }
         console.log('play');
     }
     else if( control.dataset.state === 'on' )
     {
         document.body.style.animationPlayState = 'paused';
-        audio.pause();
         control.dataset.state = 'off';
         control.innerHTML = 'play!'
         grd = readvals();
+        track1.pause();
+        if( stems ) { track2.pause(); }
         console.log('pause');
     }
 }, false );
+function setsong(title)
+{
+    switch( title )
+    {
+        case 'rock music':
+            stems = true;
+            track1.src = "./assets/audio/rock-inst.ogg";
+            track2.src = "./assets/audio/rock-vox.ogg";
+            document.body.style.background = 'url("./assets/images/rock.jpeg")';
+        case 'mid':
+            stems = true;
+            track1.src = "./assets/audio/mid-inst.ogg";
+            track2.src = "./assets/audio/mid-vox.ogg";
+            document.body.style.background = 'url("./assets/images/mid.jpeg")';
+        case 'sydney':
+            stems = true;
+            track1.src = "./assets/audio/sydney-inst.ogg";
+            track2.src = "./assets/audio/sydney-vox.ogg";
+            document.body.style.background = 'url("./assets/images/sydney.jpeg")';
+        case 'the fractal song':
+            stems = true;
+            track1.src = "./assets/audio/fractal-inst.ogg";
+            track2.src = "./assets/audio/fractal-vox.ogg";
+            document.body.style.background = 'url("./assets/images/fractal.jpeg")';
+        case 'rainbow bridge':
+            stems = true;
+            track1.src = "./assets/audio/rainbow-inst.ogg";
+            track2.src = "./assets/audio/rainbow-vox.ogg";
+            document.body.style.background = 'url("./assets/images/rainbow.jpeg")';
+        case 'source':
+            stems = false;
+            track1.src = "./assets/audio/source.mp3";
+            document.body.style.background = 'url("./assets/images/source.jpeg")';
+    }
+    let t1src  = t1ctx.createMediaElementSource( track1 ),
+        t1anal = t1ctx.createAnalyser();
+        t1src.connect( t1anal );
+        t1anal.connect( t1ctx.destination );
+    if( stems ) {
+        let t2src  = t2ctx.createMediaElementSource( track2 )
+            t2anal = t2ctx.createAnalyser();
+            t2src.connect( t2anal );
+            t2anal.connect( t2ctx.destination );
+            t1anal.fftSize = 256;
+            t2anal.fftSize = 256;
+        let t1buff  = t1anal.frequencyBinCount,
+            t1data  = new Uint8Array( t1buff ),
+            t1width = canvas.width / t1buff,
+            t2buff  = t2anal.frequencyBinCount,
+            t2data  = new Uint8Array( t2buff ),
+            t2width = canvas.width / t2buff;
+    }
+    else {
+        t1anal.fftSize = 512;
+    let t1buff  = t1anal.frequencyBinCount,
+        t1data  = new Uint8Array( t1buff ),
+        t1width = canvas.width / t1buff;
+    }
+    grd = readvals();
+    animate(); 
+}
 function animate()
 {
     if( control.dataset.state === 'on' )
     {
-        var x = 0;
-        ctx.clearRect( 0, 0, canvas.width, canvas.height );
-        analyzer.getByteFrequencyData( data );
-        for ( let i = 0 ; i < buflen ; i++ )
+        if( stems )
         {
-            let barheight = data[i]*2.5;
-            ctx.fillStyle = grd;
-            ctx.fillRect( x, canvas.height - barheight, barwidth, barheight );
-            x += barwidth;
+            var t1x = canvas.width / 2, t2x = canvas.width / 2;
+            ctx.clearRect( 0, 0, canvas.width, canvas.height );
+            t1anal.getByteFrequencyData( t1data );
+            t2anal.getByteFrequencyData( t2data );
+            for ( let i = 0 ; i < t1buff ; i++ )
+            {
+                let t1height = t1data[i]*2.5;
+                let t2height = t2data[i]*2.5;
+                ctx.fillStyle = grd;
+                ctx.fillRect( t1x, canvas.height - t1height, t1width, t1height );
+                ctx.fillRect( t2x - t2width, canvas.height - t2height, t2width, t2height );
+                t1x += t1width;
+                t2x -= t2width;
+            }
+        }
+        else
+        {
+            var t1x = 0;
+            ctx.clearRect( 0, 0, canvas.width, canvas.height );
+            t1anal.getByteFrequencyData( t1data );
+            for ( let i = 0 ; i < t1buff ; i++ )
+            {
+                let t1height = t1data[i]*2.5;
+                ctx.fillStyle = grd;
+                ctx.fillRect( t1x, canvas.height - t1height, t1width, t1height );
+                t1x += t1width;
+            }
         }
     }
     requestAnimationFrame(animate);
@@ -90,10 +172,15 @@ function readvals()
         colors[2] = document.getElementById( "c2" ).value;
         colors[3] = document.getElementById( "c3" ).value;
         colors[4] = document.getElementById( "c4" ).value;
-        tbl.innerHTML  = '';
+        tbl.innerHTML = '';
     }
-    audio.volume = volume;
-    audio.playbackRate = speed;
+    track1.volume = volume;
+    track1.playbackRate = speed;
+    if( stems )
+    {
+        track2.volume = volume;
+        track2.playbackRate = speed;
+    }
     let grd = ctx.createLinearGradient( 0, 0, 1000, 0 );
         grd.addColorStop( 0.00, colors[0] );
         grd.addColorStop( 0.25, colors[1] );
@@ -102,4 +189,4 @@ function readvals()
         grd.addColorStop( 1.00, colors[4] );
     return grd;
 }
-window.onload = function() { animate(); }
+window.onload = function() {}
