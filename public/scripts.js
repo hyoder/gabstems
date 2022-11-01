@@ -60,10 +60,10 @@ function setsong(title)
     {
         document.body.style.animationPlayState = 'paused';
         //control.dataset.state = 'off';
-        control.innerHTML = 'play!';
         track1.pause();
         if( stems ) { track2.pause(); }
     }
+    control.innerHTML = 'play!';
     track1 = new Audio(),
     track2 = new Audio(),
     t1ctx = new window.AudioContext(),
