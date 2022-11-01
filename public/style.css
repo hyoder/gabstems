@@ -6,7 +6,6 @@
 }
 body
 {
-    background: "./assets/images/source.jpeg";
     animation: scrolling 5s linear infinite;
     animation-play-state: paused;
 }

@@ -19,10 +19,10 @@ let buflen = analyzer.frequencyBinCount,
      speed = 1,
     colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ],
        grd = readvals();
-
+document.body.style.background = 'url("source.jpeg")';
 audio.addEventListener('ended', () =>
 {
-    document.body.style = 'animation-play-state: paused;';
+    document.body.style.animationPlayState = 'paused';
     control.dataset.state = 'off';
     control.innerHTML = 'play again?';
     grd = readvals();
@@ -33,7 +33,7 @@ control.addEventListener('click', () =>
     if( context.state === 'suspended' ) { context.resume(); }
     if( control.dataset.state === 'off' )
     {
-        document.body.style = 'animation-play-state: running;';
+        document.body.style.animationPlayState = 'running';
         audio.play();
         control.dataset.state = 'on';
         control.innerHTML = 'pause!';
@@ -42,7 +42,7 @@ control.addEventListener('click', () =>
     }
     else if( control.dataset.state === 'on' )
     {
-        document.body.style = 'animation-play-state: paused;';
+        document.body.style.animationPlayState = 'paused';
         audio.pause();
         control.dataset.state = 'off';
         control.innerHTML = 'play!'
