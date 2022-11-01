@@ -3,6 +3,7 @@ const  canvas = document.getElementById( "canvas" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
        inputs = document.getElementsByClassName( 'dropdown-content' );
+console.log( inputs );
 let    track1 = new Audio(),
        track2 = new Audio(),
         t1ctx = new window.AudioContext(),
@@ -13,11 +14,12 @@ let    track1 = new Audio(),
        colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ];
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-inputs.forEach(element => { element.addEventListener('click', () => { setsong(element.innerHTML); }, false ); });
+for( var i = 0 ; i < inputs.length ; i++ ) { inputs[i].addEventListener( 'click', () => { setsong(inputs[i].innerHTML ); } ) };
+//inputs.forEach( element => { element.addEventListener( 'click', () => { setsong(element.innerHTML); }, false ); } );
 window.onclick = function(event)
 {
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
-    else { for ( var i = 0; i < inputs.length; i++ ) { if (inputs[i].classList.contains('show')) { inputs[i].classList.remove('show'); } } }
+    else { for ( var i = 0; i < inputs.length; i++ ) { if ( inputs[i].classList.contains('show') ) { inputs[i].classList.remove('show'); } } }
 }
 track1.addEventListener('ended', () =>
 {
