@@ -15,6 +15,7 @@ body
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 12;
 }
 #meta
 {
@@ -38,7 +39,7 @@ body
     cursor: pointer;
     font-family: 'Source Code Pro', monospace;
 }
-.dropbtn:hover, .dropbtn:focus { background-color: #2980B9; }
+.dropbtn:hover, .dropbtn:focus { background-color: lightgrey; }
 .dropdown-content {
     display: none;
     position: absolute;
