@@ -1,5 +1,5 @@
 let     audio = new Audio();
-    audio.src = "../assets/audio/source.mp3";
+    audio.src = "./assets/audio/source.mp3";
 const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
       context = new window.AudioContext(),
@@ -7,6 +7,7 @@ const  canvas = document.getElementById( "canvas" ),
           tbl = document.getElementById( 'inputtbl' );
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
+document.body.style = 'background: "./assets/images/source.jpeg";'
 let source = context.createMediaElementSource( audio ),
   analyzer = context.createAnalyser();
 source.connect( analyzer );
