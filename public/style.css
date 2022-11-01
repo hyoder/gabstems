@@ -21,7 +21,7 @@ body
     position: relative;
     display: inline-block;
     top: 20%;
-    text-align: center;
+    text-align: center !important;
     vertical-align: middle;
     font-family: 'Source Code Pro', monospace;
     z-index: 10;

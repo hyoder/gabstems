@@ -19,7 +19,7 @@ window.onclick = function(event) {
     else
     {
         var dropdowns = document.getElementsByClassName("dropdown-content");
-        for ( var i = 0; i < dropdowns.length; i++ ) { if (dropdowns[i].classList.contains('show')) { openDropdown.classList.remove('show'); } }
+        for ( var i = 0; i < dropdowns.length; i++ ) { if (dropdowns[i].classList.contains('show')) { dropdowns[i].classList.remove('show'); } }
     }
   }
 selector.addEventListener('click', () => { console.log(selector.innerHTML); setsong(selector.innerHTML); }, false);
