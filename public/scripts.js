@@ -2,7 +2,7 @@ const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
-       inputs = Array.from( document.getElementsByClassName( 'dropdown-content' ) );
+       inputs = ["i01","i02","i03","i04","i05","i06"];
 console.log( inputs );
 let    track1 = new Audio(),
        track2 = new Audio(),
@@ -14,7 +14,11 @@ let    track1 = new Audio(),
        colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ];
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-for( var i = 0 ; i < inputs.length ; i++ ) { inputs[i].addEventListener( 'click', () => { setsong(inputs[i].innerHTML ); } ) };
+inputs.forEach( element => { 
+    songinput = document.getElementById( element ); 
+    songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
+} );
+//for( var i = 0 ; i < inputs.length ; i++ ) { inputs[i].addEventListener( 'click', () => { setsong(inputs[i].innerHTML ); } ) };
 //inputs.forEach( element => { element.addEventListener( 'click', () => { setsong(element.innerHTML); }, false ); } );
 window.onclick = function(event)
 {
