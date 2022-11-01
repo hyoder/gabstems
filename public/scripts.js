@@ -34,7 +34,18 @@ track1.addEventListener('ended', () =>
 }, false );
 control.addEventListener('click', () => 
 {
-    if( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.random() * 6 ] ).innerHTML ); }
+    if( control.innerHTML === 'i\'m feeling lucky' )
+    {
+        let x = Math.random() * 6;
+        console.log(x);
+        let y = inputs[x];
+        console.log(y);
+        let z = document.getElementById(y);
+        console.log(z);
+        console.log(z.innerHTML);
+        setsong( z.innerHTML );
+        control.innerHTML = 'play!';
+    }
     if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
     if( control.dataset.state === 'off' )
     {
