@@ -71,6 +71,7 @@ function setsong(title)
     t1ctx = new window.AudioContext(),
     t2ctx = new window.AudioContext();
     console.log(title);
+    document.getElementById("songtitle").innerHTML = title;
     switch( title )
     {
         case 'rock music':
@@ -145,7 +146,7 @@ function animate()
             {
                 let t1height = t1data[i]*2.5;
                 let t2height = t2data[i]*2.5;
-                ctx.fillStyle = grd;
+                ctx.fillStyle = "#000000";
                 ctx.fillRect( t1x, canvas.height - t1height, t1width, t1height );
                 ctx.fillRect( t2x - t2width, canvas.height - t2height, t2width, t2height );
                 t1x += t1width;
@@ -160,7 +161,7 @@ function animate()
             for ( let i = 0 ; i < t1buff ; i++ )
             {
                 let t1height = t1data[i]*2.5;
-                ctx.fillStyle = grd;
+                ctx.fillStyle = "#000000";
                 ctx.fillRect( t1x, canvas.height - t1height, t1width, t1height );
                 t1x += t1width;
             }
