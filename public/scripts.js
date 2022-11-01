@@ -76,30 +76,36 @@ function setsong(title)
             track1.src = "./assets/audio/rock-inst.ogg";
             track2.src = "./assets/audio/rock-vox.ogg";
             document.body.style.background = 'url("./assets/images/rock.jpeg")';
+            break;
         case 'mid':
             stems = true;
             track1.src = "./assets/audio/mid-inst.ogg";
             track2.src = "./assets/audio/mid-vox.ogg";
             document.body.style.background = 'url("./assets/images/mid.jpeg")';
+            break;
         case 'sydney':
             stems = true;
             track1.src = "./assets/audio/sydney-inst.ogg";
             track2.src = "./assets/audio/sydney-vox.ogg";
             document.body.style.background = 'url("./assets/images/sydney.jpeg")';
+            break;
         case 'the fractal song':
             stems = true;
             track1.src = "./assets/audio/fractal-inst.ogg";
             track2.src = "./assets/audio/fractal-vox.ogg";
             document.body.style.background = 'url("./assets/images/fractal.jpeg")';
+            break;
         case 'rainbow bridge':
             stems = true;
             track1.src = "./assets/audio/rainbow-inst.ogg";
             track2.src = "./assets/audio/rainbow-vox.ogg";
             document.body.style.background = 'url("./assets/images/rainbow.jpeg")';
+            break;
         case 'source':
             stems = false;
             track1.src = "./assets/audio/source.mp3";
             document.body.style.background = 'url("./assets/images/source.jpeg")';
+            break;
     }
     let t1src  = t1ctx.createMediaElementSource( track1 ),
         t1anal = t1ctx.createAnalyser();
