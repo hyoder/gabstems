@@ -2,7 +2,7 @@ const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
-       inputs = Array.from( document.getElementsByClassName( 'p' ) );
+       inputs = Array.from( document.getElementsByClassName( 'dropdown-content' ) );
 console.log( inputs );
 let    track1 = new Audio(),
        track2 = new Audio(),
