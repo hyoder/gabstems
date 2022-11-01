@@ -82,35 +82,59 @@ function setsong(title)
             track1.src = "./assets/audio/rock-inst.ogg";
             track2.src = "./assets/audio/rock-vox.ogg";
             document.body.style.background = 'url("./assets/images/rock.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/rock-music/1609976325?i=1609976326";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/rock-music";
+            document.getElementById("splink").href = "https://open.spotify.com/track/0QU3VTMzBkx6Jyv9cgUaVh?si=c2a66f4ec46b4f1c";
+            document.getElementById("ytlink").href = "https://youtu.be/LvZJhLZs7yk";
             break;
         case 'mid':
             stems = true;
             track1.src = "./assets/audio/mid-inst.ogg";
             track2.src = "./assets/audio/mid-vox.ogg";
             document.body.style.background = 'url("./assets/images/mid.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/mid/1609976325?i=1609976327";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/mid";
+            document.getElementById("splink").href = "https://open.spotify.com/track/52OpdjygHPdAyZXz9TheCv?si=20b3c06f913048a2";
+            document.getElementById("ytlink").href = "https://youtu.be/x10FKrgdGec";
             break;
         case 'sydney':
             stems = true;
             track1.src = "./assets/audio/sydney-inst.ogg";
             track2.src = "./assets/audio/sydney-vox.ogg";
             document.body.style.background = 'url("./assets/images/sydney.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/sydney/1609976325?i=1609976328";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/sydney";
+            document.getElementById("splink").href = "https://open.spotify.com/track/6tgBcDasLoHgasLgZTPFpD?si=3f023e2156014ca2";
+            document.getElementById("ytlink").href = "https://youtu.be/FUITX8kBdbw";
             break;
         case 'the fractal song':
             stems = true;
             track1.src = "./assets/audio/fractal-inst.ogg";
             track2.src = "./assets/audio/fractal-vox.ogg";
             document.body.style.background = 'url("./assets/images/fractal.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/the-fractal-song/1609976325?i=1609976329";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/thefractalsong";
+            document.getElementById("splink").href = "https://open.spotify.com/track/3C0xe0liW19waPnecVs3UB?si=e9ae15695f124804";
+            document.getElementById("ytlink").href = "https://youtu.be/gXjtqBbYSTY";
             break;
         case 'rainbow bridge':
             stems = true;
             track1.src = "./assets/audio/rainbow-inst.ogg";
             track2.src = "./assets/audio/rainbow-vox.ogg";
             document.body.style.background = 'url("./assets/images/rainbow.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/rainbow-bridge/1609976325?i=1609976330";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/rainbow-bridge";
+            document.getElementById("splink").href = "https://open.spotify.com/track/79tbhEOtoixfx2hYha4Da8?si=e1da7fe6b91b42e1";
+            document.getElementById("ytlink").href = "https://youtu.be/XovGmOL9Jco";
             break;
         case 'source':
             stems = false;
             track1.src = "./assets/audio/source.mp3";
             document.body.style.background = 'url("./assets/images/source.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/artist/gabby-start/1588701682";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/source";
+            document.getElementById("splink").href = "https://open.spotify.com/artist/33L1klom7IXmoAP8fjrGm9";
+            document.getElementById("ytlink").href = "https://www.youtube.com/channel/UCrVlEhANXP_w4SuGiXHHlZA/";
             break;
     }
     t1src  = t1ctx.createMediaElementSource( track1 ),

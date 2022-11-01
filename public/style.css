@@ -52,4 +52,4 @@ table { margin-left: auto; margin-right: auto; }
 }
 .dropdown-content p:hover {background-color: #ddd;}
 .show { display: inline-block; }
-@keyframes scrolling { from { background-position: 0 0; } to { background-position: -500px -500px;} }
+@keyframes scrolling { from { background-position: 0 0; } to { background-position: 0px -500px;} }
