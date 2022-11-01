@@ -19,9 +19,8 @@ body
 #meta
 {
     position: relative;
-    display: inline-block;
     top: 20%;
-    text-align: center !important;
+    text-align: center;
     vertical-align: middle;
     font-family: 'Source Code Pro', monospace;
     z-index: 10;

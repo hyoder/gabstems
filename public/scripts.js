@@ -2,7 +2,7 @@ const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
-       inputs = document.getElementsByClassName( 'dropdown-content' );
+       inputs = document.getElementsByClassName( 'p' );
 console.log( inputs );
 let    track1 = new Audio(),
        track2 = new Audio(),
@@ -19,7 +19,11 @@ for( var i = 0 ; i < inputs.length ; i++ ) { inputs[i].addEventListener( 'click'
 window.onclick = function(event)
 {
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
-    else { for ( var i = 0; i < inputs.length; i++ ) { if ( inputs[i].classList.contains('show') ) { inputs[i].classList.remove('show'); } } }
+    else
+    {
+        dropdowns = document.getElementsByClassName( 'dropdown-content' );
+        for ( var i = 0; i < dropdowns.length; i++ ) { if ( dropdowns[i].classList.contains('show') ) { dropdowns[i].classList.remove('show'); } }
+    }
 }
 track1.addEventListener('ended', () =>
 {
