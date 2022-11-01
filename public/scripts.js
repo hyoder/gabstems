@@ -14,7 +14,10 @@ let    track1 = new Audio(),
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-
+inputs.forEach( element => { 
+    let songinput = document.getElementById( element );
+    songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
+} );
 window.onclick = function(event)
 {
     if ( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
