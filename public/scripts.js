@@ -2,21 +2,19 @@ const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
-       inputs = ["i01","i02","i03","i04","i05","i06"];
+       inputs = ["i01","i02","i03","i04","i05","i06"],
+       slider = document.getElementById( 'sp' );
 let    track1 = new Audio(),
        track2 = new Audio(),
         t1ctx = new window.AudioContext(),
         t2ctx = new window.AudioContext(),
         stems = false,
         speed = 1,
-       colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ];
+          bpm = 0;
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-inputs.forEach( element => { 
-    let songinput = document.getElementById( element );
-    songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
-} );
+
 window.onclick = function(event)
 {
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
@@ -76,6 +74,7 @@ function setsong(title)
     {
         case 'rock music':
             stems = true;
+            bpm = 105;
             track1.src = "./assets/audio/rock-inst.ogg";
             track2.src = "./assets/audio/rock-vox.ogg";
             document.body.style.background = 'url("./assets/images/rock.jpeg")';
@@ -86,6 +85,7 @@ function setsong(title)
             break;
         case 'mid':
             stems = true;
+            bpm = 125;
             track1.src = "./assets/audio/mid-inst.ogg";
             track2.src = "./assets/audio/mid-vox.ogg";
             document.body.style.background = 'url("./assets/images/mid.jpeg")';
@@ -96,6 +96,7 @@ function setsong(title)
             break;
         case 'sydney':
             stems = true;
+            bpm = 160;
             track1.src = "./assets/audio/sydney-inst.ogg";
             track2.src = "./assets/audio/sydney-vox.ogg";
             document.body.style.background = 'url("./assets/images/sydney.jpeg")';
@@ -106,6 +107,7 @@ function setsong(title)
             break;
         case 'the fractal song':
             stems = true;
+            bpm = 152;
             track1.src = "./assets/audio/fractal-inst.ogg";
             track2.src = "./assets/audio/fractal-vox.ogg";
             document.body.style.background = 'url("./assets/images/fractal.jpeg")';
@@ -116,6 +118,7 @@ function setsong(title)
             break;
         case 'rainbow bridge':
             stems = true;
+            bpm = 98;
             track1.src = "./assets/audio/rainbow-inst.ogg";
             track2.src = "./assets/audio/rainbow-vox.ogg";
             document.body.style.background = 'url("./assets/images/rainbow.jpeg")';
@@ -126,6 +129,7 @@ function setsong(title)
             break;
         case 'source':
             stems = false;
+            bpm = 125;
             track1.src = "./assets/audio/source.mp3";
             document.body.style.background = 'url("./assets/images/source.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/artist/gabby-start/1588701682";
@@ -196,12 +200,10 @@ function readvals()
 {
     if( control.dataset.state === 'off' )
     {
-        tbl.innerHTML += '<td><label for="sp" style="font-family:\'Source Code Pro\',monospace;background-color:rgba(255,255,255,.6);text-align:center;">playback speed: </label>'
-        tbl.innerHTML +=     '<input type="range" id="sp" value="' +  speed*4  + '" min="2" max="12" step="1" style="width:210px; height:25px;"></td>'
     }
     if( control.dataset.state === 'on' )
     {
-            speed = document.getElementById( "sp" ).value /  4;
+            speed = document.getElementById( "sp" ).value /  bpm;
         tbl.innerHTML = '';
     }
     track1.playbackRate = speed;
