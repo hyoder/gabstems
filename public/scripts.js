@@ -3,7 +3,6 @@ const  canvas = document.getElementById( "canvas" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
        inputs = ["i01","i02","i03","i04","i05","i06"];
-console.log( inputs );
 let    track1 = new Audio(),
        track2 = new Audio(),
         t1ctx = new window.AudioContext(),
@@ -16,10 +15,8 @@ canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 inputs.forEach( element => { 
     songinput = document.getElementById( element ); 
-    songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
+    songinput.addEventListener( 'click', () => { console.log(songinput.innerHTML); setsong( songinput.innerHTML ); }, false ); 
 } );
-//for( var i = 0 ; i < inputs.length ; i++ ) { inputs[i].addEventListener( 'click', () => { setsong(inputs[i].innerHTML ); } ) };
-//inputs.forEach( element => { element.addEventListener( 'click', () => { setsong(element.innerHTML); }, false ); } );
 window.onclick = function(event)
 {
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
@@ -67,6 +64,8 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
+    t1ctx = new window.AudioContext(),
+    t2ctx = new window.AudioContext();
     switch( title )
     {
         case 'rock music':
