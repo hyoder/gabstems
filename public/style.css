@@ -40,7 +40,6 @@ body
     display: none;
     position: absolute;
     background-color: #f1f1f1;
-    margin: 0 auto;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 11;
@@ -53,7 +52,7 @@ body
     display: block;
   }
 .dropdown-content p:hover {background-color: #ddd;}
-.show {display:block;}
+.show { display: inline-block; }
 button
 {
     display: inline-block;
