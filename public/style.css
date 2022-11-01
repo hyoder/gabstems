@@ -28,12 +28,15 @@ body
     background-color: rgba(150,150,150,.3)
 }
 .dropbtn {
-    background-color: #3498DB;
-    color: white;
+    width: 250px;
+    height: 80px;
+    background-color: grey;
+    color: black;
     padding: 16px;
-    font-size: 16px;
+    font-size: 32px;
     border: none;
     cursor: pointer;
+    font-family: 'Source Code Pro', monospace;
 }
 .dropbtn:hover, .dropbtn:focus { background-color: #2980B9; }
 .dropdown-content {

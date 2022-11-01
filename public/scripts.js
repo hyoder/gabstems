@@ -64,14 +64,18 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
+    document.body.style.animationPlayState = 'paused';
+    control.dataset.state = 'off';
+    control.innerHTML = 'play!';
     track1.pause();
     if( stems ) { track2.pause(); }
+    grd = readvals();
     track1 = new Audio(),
     track2 = new Audio(),
     t1ctx = new window.AudioContext(),
     t2ctx = new window.AudioContext();
     console.log(title);
-    document.getElementById("songtitle").innerHTML = title;
+    document.getElementById("dropbtn").innerHTML = title;
     switch( title )
     {
         case 'rock music':
@@ -148,7 +152,7 @@ function animate()
                 let t2height = t2data[i]*1.5;
                 ctx.fillStyle = "#000000";
                 ctx.fillRect( 0, y, t1height, t1width );
-                ctx.fillRect( canvas.width - t2height, y, t2height, t2width );
+                ctx.fillRect( canvas.width - t2height, canvas.height - y, t2height, t2width );
                 y += t1width;
             }
         }
