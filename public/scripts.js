@@ -19,7 +19,7 @@ let buflen = analyzer.frequencyBinCount,
      speed = 1,
     colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ],
        grd = readvals();
-document.body.style.background = 'url("source.jpeg")';
+document.body.style.background = './assets/images/source.jpeg';
 audio.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
