@@ -14,8 +14,11 @@ let    track1 = new Audio(),
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 inputs.forEach( element => { 
-    songinput = document.getElementById( element ); 
-    songinput.addEventListener( 'click', () => { console.log(songinput.innerHTML); setsong( songinput.innerHTML ); }, false ); 
+    console.log( element );
+    let songinput = document.getElementById( element );
+    console.log( songinput );
+    console.log( songinput.innerHTML );
+    songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
 } );
 window.onclick = function(event)
 {
