@@ -43,7 +43,7 @@ control.addEventListener('click', () =>
         let z = document.getElementById(y);
         console.log(z);
         console.log(z.innerHTML);
-        setsong( z.innerHTML );
+        let a = setsong( z.innerHTML );
     }
     if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
     else if( control.dataset.state === 'off' )
