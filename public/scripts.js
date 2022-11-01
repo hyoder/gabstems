@@ -14,6 +14,14 @@ let    track1 = new Audio(),
           grd = readvals();
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
+window.onclick = function(event) {
+    if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
+    else
+    {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for ( var i = 0; i < dropdowns.length; i++ ) { if (dropdowns[i].classList.contains('show')) { openDropdown.classList.remove('show'); } }
+    }
+  }
 selector.addEventListener('click', () => { console.log(selector.innerHTML); setsong(selector.innerHTML); }, false);
 track1.addEventListener('ended', () =>
 {
@@ -89,7 +97,8 @@ function setsong(title)
         t1anal = t1ctx.createAnalyser();
         t1src.connect( t1anal );
         t1anal.connect( t1ctx.destination );
-    if( stems ) {
+    if( stems )
+    {
         let t2src  = t2ctx.createMediaElementSource( track2 )
             t2anal = t2ctx.createAnalyser();
             t2src.connect( t2anal );
@@ -103,11 +112,12 @@ function setsong(title)
             t2data  = new Uint8Array( t2buff ),
             t2width = canvas.width / t2buff;
     }
-    else {
-        t1anal.fftSize = 512;
-    let t1buff  = t1anal.frequencyBinCount,
-        t1data  = new Uint8Array( t1buff ),
-        t1width = canvas.width / t1buff;
+    else
+    {
+            t1anal.fftSize = 512;
+        let t1buff  = t1anal.frequencyBinCount,
+            t1data  = new Uint8Array( t1buff ),
+            t1width = canvas.width / t1buff;
     }
     grd = readvals();
     animate(); 
