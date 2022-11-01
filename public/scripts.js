@@ -13,7 +13,7 @@ let    track1 = new Audio(),
        colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ];
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-inputs.array.forEach(element => { element.addEventListener('click', () => { setsong(element.innerHTML); }, false ); });
+inputs.forEach(element => { element.addEventListener('click', () => { setsong(element.innerHTML); }, false ); });
 window.onclick = function(event)
 {
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
