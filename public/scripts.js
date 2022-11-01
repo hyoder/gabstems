@@ -8,9 +8,9 @@ let    track1 = new Audio(),
         t1ctx = new window.AudioContext(),
         t2ctx = new window.AudioContext(),
         stems = false,
-       volume = 1,
         speed = 1,
        colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ];
+var grd, t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 inputs.forEach( element => { 
@@ -107,33 +107,27 @@ function setsong(title)
             document.body.style.background = 'url("./assets/images/source.jpeg")';
             break;
     }
-    let t1src  = t1ctx.createMediaElementSource( track1 ),
-        t1anal = t1ctx.createAnalyser();
-        t1src.connect( t1anal );
-        t1anal.connect( t1ctx.destination );
+    t1src  = t1ctx.createMediaElementSource( track1 ),
+    t1anal = t1ctx.createAnalyser();
+    t1src.connect( t1anal );
+    t1anal.connect( t1ctx.destination );
     if( stems )
     {
-        let t2src  = t2ctx.createMediaElementSource( track2 )
-            t2anal = t2ctx.createAnalyser();
-            t2src.connect( t2anal );
-            t2anal.connect( t2ctx.destination );
-            t1anal.fftSize = 256;
-            t2anal.fftSize = 256;
-        let t1buff  = t1anal.frequencyBinCount,
-            t1data  = new Uint8Array( t1buff ),
-            t1width = canvas.width / t1buff,
-            t2buff  = t2anal.frequencyBinCount,
-            t2data  = new Uint8Array( t2buff ),
-            t2width = canvas.width / t2buff;
+        t1anal.fftSize = 256;
+        t2src  = t2ctx.createMediaElementSource( track2 )
+        t2anal = t2ctx.createAnalyser();
+        t2src.connect( t2anal );
+        t2anal.connect( t2ctx.destination );
+        t2anal.fftSize = 256;
+        t2buff  = t2anal.frequencyBinCount,
+        t2data  = new Uint8Array( t2buff ),
+        t2width = canvas.width / t2buff;
     }
-    else
-    {
-            t1anal.fftSize = 512;
-        let t1buff  = t1anal.frequencyBinCount,
-            t1data  = new Uint8Array( t1buff ),
-            t1width = canvas.width / t1buff;
-    }
-    let grd = readvals();
+    else { t1anal.fftSize = 512; }
+    t1buff  = t1anal.frequencyBinCount,
+    t1data  = new Uint8Array( t1buff ),
+    t1width = canvas.width / t1buff;
+    grd = readvals();
     animate(); 
 }
 function animate()
@@ -177,8 +171,6 @@ function readvals()
 {
     if( control.dataset.state === 'off' )
     {
-        tbl.innerHTML  = '<td><label for="vl" style="font-family:\'Source Code Pro\',monospace;background-color:rgba(255,255,255,.6);text-align:center;">volume: </label>'
-        tbl.innerHTML +=     '<input type="range" id="vl" value="' + volume*10 + '" min="0" max="10" step="1" style="width:210px; height:25px;"></td>'
         tbl.innerHTML += '<td><label for="sp" style="font-family:\'Source Code Pro\',monospace;background-color:rgba(255,255,255,.6);text-align:center;">playback speed: </label>'
         tbl.innerHTML +=     '<input type="range" id="sp" value="' +  speed*4  + '" min="2" max="12" step="1" style="width:210px; height:25px;"></td>'
         tbl.innerHTML += '<td><input type="color" id="c0" value="' + colors[0] + '" style="width:210px; height:25px; text-align:center;"></td>';
@@ -189,7 +181,6 @@ function readvals()
     }
     if( control.dataset.state === 'on' )
     {
-           volume = document.getElementById( "vl" ).value / 10;
             speed = document.getElementById( "sp" ).value /  4;
         colors[0] = document.getElementById( "c0" ).value;
         colors[1] = document.getElementById( "c1" ).value;
@@ -198,13 +189,8 @@ function readvals()
         colors[4] = document.getElementById( "c4" ).value;
         tbl.innerHTML = '';
     }
-    track1.volume = volume;
     track1.playbackRate = speed;
-    if( stems )
-    {
-        track2.volume = volume;
-        track2.playbackRate = speed;
-    }
+    if( stems ) { track2.playbackRate = speed; }
     let grd = ctx.createLinearGradient( 0, 0, 1000, 0 );
         grd.addColorStop( 0.00, colors[0] );
         grd.addColorStop( 0.25, colors[1] );
