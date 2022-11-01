@@ -2,9 +2,11 @@ const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
-       inputs = document.getElementsByClassName( 'songinput' );
+       inputs = document.getElementsByClassName( 'dropdown-content' );
 let    track1 = new Audio(),
        track2 = new Audio(),
+        t1ctx = new window.AudioContext(),
+        t2ctx = new window.AudioContext(),
         stems = false,
        volume = 1,
         speed = 1,
@@ -12,14 +14,11 @@ let    track1 = new Audio(),
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 inputs.array.forEach(element => { element.addEventListener('click', () => { setsong(element.innerHTML); }, false ); });
-window.onclick = function(event) {
+window.onclick = function(event)
+{
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
-    else
-    {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for ( var i = 0; i < dropdowns.length; i++ ) { if (dropdowns[i].classList.contains('show')) { dropdowns[i].classList.remove('show'); } }
-    }
-  }
+    else { for ( var i = 0; i < inputs.length; i++ ) { if (inputs[i].classList.contains('show')) { inputs[i].classList.remove('show'); } } }
+}
 track1.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
@@ -33,7 +32,7 @@ control.addEventListener('click', () =>
     if( t1ctx.state === 'suspended' )
     { 
         t1ctx.resume();
-        if( stems ) { t2ctx.resume(); }
+        if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); }
     }
     if( control.dataset.state === 'off' )
     {
@@ -58,8 +57,6 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
-    let t1ctx = new window.AudioContext(),
-        t2ctx = new window.AudioContext();
     switch( title )
     {
         case 'rock music':
