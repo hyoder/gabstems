@@ -34,7 +34,7 @@ track1.addEventListener('ended', () =>
 }, false );
 control.addEventListener('click', () => 
 {
-    if( control.innerHTML === 'i\'m feeling lucky' ) { setsong( inputs[ Math.random() * 6 ].innerHTML ); }
+    if( control.innerText === 'i\'m feeling lucky' ) { setsong( inputs[ Math.random() * 6 ].innerHTML ); }
     if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
     if( control.dataset.state === 'off' )
     {
