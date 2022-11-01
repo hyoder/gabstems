@@ -44,9 +44,8 @@ control.addEventListener('click', () =>
         console.log(z);
         console.log(z.innerHTML);
         setsong( z.innerHTML );
-        control.innerHTML = 'play!'
     }
-    else if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
+    if( t1ctx.state === 'suspended' ) { t1ctx.resume(); if( stems && t2ctx.state ==='suspended' ) { t2ctx.resume(); } }
     else if( control.dataset.state === 'off' )
     {
         document.body.style.animationPlayState = 'running';
