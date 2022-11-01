@@ -1,19 +1,17 @@
 const  canvas = document.getElementById( "canvas" ),
-        t1ctx = new window.AudioContext(),
-        t2ctx = new window.AudioContext(),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
-     selector = document.getElementById( 'songinput' );
+       inputs = document.getElementsByClassName( 'songinput' );
 let    track1 = new Audio(),
        track2 = new Audio(),
         stems = false,
        volume = 1,
         speed = 1,
-       colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ],
-          grd = readvals();
+       colors = [ "#080806", "#977A74", "#EBE84D", "#EA3522", "#397326" ];
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
+inputs.array.forEach(element => { element.addEventListener('click', () => { setsong(element.innerHTML); }, false ); });
 window.onclick = function(event) {
     if( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
     else
@@ -22,7 +20,6 @@ window.onclick = function(event) {
         for ( var i = 0; i < dropdowns.length; i++ ) { if (dropdowns[i].classList.contains('show')) { dropdowns[i].classList.remove('show'); } }
     }
   }
-selector.addEventListener('click', () => { console.log(selector.innerHTML); setsong(selector.innerHTML); }, false);
 track1.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
@@ -61,6 +58,8 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
+    let t1ctx = new window.AudioContext(),
+        t2ctx = new window.AudioContext();
     switch( title )
     {
         case 'rock music':
@@ -119,7 +118,7 @@ function setsong(title)
             t1data  = new Uint8Array( t1buff ),
             t1width = canvas.width / t1buff;
     }
-    grd = readvals();
+    let grd = readvals();
     animate(); 
 }
 function animate()
