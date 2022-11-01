@@ -1,5 +1,5 @@
 let     audio = new Audio();
-    audio.src = "./assets/audio/source.mp3";
+    audio.src = "../assets/audio/source.mp3";
 const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
       context = new window.AudioContext(),
