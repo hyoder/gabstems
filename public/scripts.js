@@ -64,6 +64,8 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
+    track1.pause();
+    if( stems ) { track2.pause(); }
     track1 = new Audio(),
     track2 = new Audio(),
     t1ctx = new window.AudioContext(),
@@ -111,22 +113,21 @@ function setsong(title)
     t1anal = t1ctx.createAnalyser();
     t1src.connect( t1anal );
     t1anal.connect( t1ctx.destination );
+    t1anal.fftSize = 512;
+    t1buff  = t1anal.frequencyBinCount,
+    t1data  = new Uint8Array( t1buff ),
+    t1width = canvas.width / t1buff;
     if( stems )
     {
-        t1anal.fftSize = 256;
         t2src  = t2ctx.createMediaElementSource( track2 )
         t2anal = t2ctx.createAnalyser();
         t2src.connect( t2anal );
         t2anal.connect( t2ctx.destination );
-        t2anal.fftSize = 256;
+        t2anal.fftSize = 512;
         t2buff  = t2anal.frequencyBinCount,
         t2data  = new Uint8Array( t2buff ),
         t2width = canvas.width / t2buff;
     }
-    else { t1anal.fftSize = 512; }
-    t1buff  = t1anal.frequencyBinCount,
-    t1data  = new Uint8Array( t1buff ),
-    t1width = canvas.width / t1buff;
     grd = readvals();
     animate(); 
 }
@@ -192,11 +193,11 @@ function readvals()
     track1.playbackRate = speed;
     if( stems ) { track2.playbackRate = speed; }
     let grd = ctx.createLinearGradient( 0, 0, 1000, 0 );
-        grd.addColorStop( 0.00, colors[0] );
-        grd.addColorStop( 0.25, colors[1] );
-        grd.addColorStop( 0.50, colors[2] );
-        grd.addColorStop( 0.75, colors[3] );
-        grd.addColorStop( 1.00, colors[4] );
+        grd.addColorStop( 0.00, colors[1] );
+        grd.addColorStop( 0.25, colors[0] );
+        grd.addColorStop( 0.50, colors[0] );
+        grd.addColorStop( 0.75, colors[0] );
+        grd.addColorStop( 1.00, colors[1] );
     return grd;
 }
 window.onload = function() {}
