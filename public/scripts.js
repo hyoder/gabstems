@@ -14,10 +14,7 @@ let    track1 = new Audio(),
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 inputs.forEach( element => { 
-    console.log( element );
     let songinput = document.getElementById( element );
-    console.log( songinput );
-    console.log( songinput.innerHTML );
     songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
 } );
 window.onclick = function(event)
@@ -67,8 +64,11 @@ control.addEventListener('click', () =>
 }, false );
 function setsong(title)
 {
+    track1 = new Audio(),
+    track2 = new Audio(),
     t1ctx = new window.AudioContext(),
     t2ctx = new window.AudioContext();
+    console.log(title);
     switch( title )
     {
         case 'rock music':
