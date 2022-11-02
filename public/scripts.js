@@ -65,9 +65,9 @@ slider.addEventListener('input', (e) =>
 }, false );
 function setsong(title)
 {
+    document.body.style.animationPlayState = 'paused';
     if ( control.innerHTML === 'pause!' )
     {
-        document.body.style.animationPlayState = 'paused';
         if ( stems ) { track1.pause(); track2.pause(); }
         else { track1.pause(); }
     }

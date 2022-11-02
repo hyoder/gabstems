@@ -1,4 +1,4 @@
-- make tempo slider actually work w/bpm and show live label
-- custom color scheme by song for vis and ui
-- make stems toggle-able
 - add home page theme
+- make stems toggle-able
+- custom color scheme by song for vis and ui
+- figure out why stems are out of sync sometimes
