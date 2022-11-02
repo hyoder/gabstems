@@ -58,8 +58,8 @@ control.addEventListener('click', () =>
 }, false );
 slider.addEventListener('input', (e) =>
 {
-    if( stems ) { track1.playbackRate = e / bpm; track2.playbackRate = e / bpm; }
-    else { track1.playbackRate = e / bpm; }
+    if( stems ) { track1.playbackRate = parseFloat( e / bpm ); track2.playbackRate = parseFloat( e / bpm ); }
+    else { track1.playbackRate = parseFloat( e / bpm ); }
     slabel.innerHTML = e + ' bpm';
 }, false );
 function setsong(title)
