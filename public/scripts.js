@@ -1,5 +1,6 @@
 // color schema for diff songs
-// array = [ vis color, metadiv background, metadiv opacity, songselect color, songselect hover color ]
+// array = [ vis color, songselect color, songselect hover color ]
+// home = [ #000000, 'teal', 'skyblue' ]
 
 const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
@@ -16,7 +17,8 @@ let    track1 = new Audio(),
         speed = 1,
           bpm = 0,
       t1ready = false,
-      t2ready = false;
+      t2ready = false,
+     viscolor = '#000000';
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -86,6 +88,13 @@ slider.addEventListener('input', (e) =>
     slabel.innerHTML = slider.value + ' bpm';
 }, false );
 // set song
+function setcolors ( array )
+{
+    viscolor = array[0];
+    document.getElementById('meta').style.backgroundColor = array[1];
+    document.getElementById('dropbtn').style.backgroundColor = array[2];
+    document.styleSheets
+}
 function setsong(title)
 {
     document.getElementById('bpm-slider').style.display = 'block';
