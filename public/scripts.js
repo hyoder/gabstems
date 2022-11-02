@@ -87,14 +87,16 @@ slider.addEventListener('input', (e) =>
     else { track1.playbackRate = slider.value / bpm; }
     slabel.innerHTML = slider.value + ' bpm';
 }, false );
-// set song
+// set color scheme
+/*
 function setcolors ( array )
 {
     viscolor = array[0];
-    document.getElementById('meta').style.backgroundColor = array[1];
-    document.getElementById('dropbtn').style.backgroundColor = array[2];
+    document.getElementById('dropbtn').style.backgroundColor = array[1];
     document.styleSheets
 }
+*/
+// set song
 function setsong(title)
 {
     document.getElementById('bpm-slider').style.display = 'block';
