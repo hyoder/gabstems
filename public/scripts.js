@@ -57,10 +57,10 @@ control.addEventListener('click', () =>
     {
         document.body.style.animationPlayState = 'running';
         control.innerHTML = 'pause!';
-        while ( t1ready = false ) {}
+        while ( t1ready === false ) {}
         if ( stems )
         {
-            while ( t2ready = false ) {}
+            while ( t2ready === false ) {}
             track1.play();
             track2.play();
         }
