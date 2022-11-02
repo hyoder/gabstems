@@ -8,7 +8,9 @@ const  canvas = document.getElementById( "canvas" ),
           tbl = document.getElementById( 'inputtbl' ),
        inputs = ["i01","i02","i03","i04","i05","i06"],
        slider = document.getElementById( 'sp' ),
-       slabel = document.getElementById( 'splabel' );
+       slabel = document.getElementById( 'splabel' ),
+        t1btn = document.getElementById( 't1btn' ),
+        t2btn = document.getElementById( 't2btn' );
 let    track1 = new Audio(),
        track2 = new Audio(),
         t1ctx = new window.AudioContext(),
@@ -99,7 +101,7 @@ function setcolors ( array )
 // set song
 function setsong(title)
 {
-    document.getElementById('bpm-slider').style.display = 'block';
+    document.getElementById('ctrl').style.display = 'block';
     document.body.style.animationPlayState = 'paused';
     if ( control.innerHTML === 'pause!' )
     {
@@ -203,6 +205,13 @@ function setsong(title)
         t2buff  = t2anal.frequencyBinCount,
         t2data  = new Uint8Array( t2buff ),
         t2width = canvas.width / t2buff;
+        t1btn.style.display = 'block';
+        t2btn.style.display = 'block';
+    }
+    else
+    {
+        t1btn.style.display = 'none';
+        t2btn.style.display = 'none';
     }
     animate();
 };
