@@ -1,4 +1,3 @@
-- add home page theme
 - make stems toggle-able
 - custom color scheme by song for vis and ui
 - figure out why stems are out of sync sometimes
