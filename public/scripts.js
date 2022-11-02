@@ -65,6 +65,7 @@ slider.addEventListener('input', (e) =>
 }, false );
 function setsong(title)
 {
+    document.getElementById('bpm-slider').style.display = 'block';
     document.body.style.animationPlayState = 'paused';
     if ( control.innerHTML === 'pause!' )
     {
