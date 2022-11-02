@@ -15,10 +15,12 @@ let    track1 = new Audio(),
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
+// add listener for each song in dropdown menu
 inputs.forEach( element => { 
     let songinput = document.getElementById( element );
     songinput.addEventListener( 'click', () => { setsong( songinput.innerHTML ); }, false ); 
 } );
+// close dropdown menu when clicking anywhere else on screen
 window.onclick = function(event)
 {
     if ( event.target.matches('.dropbtn')) { document.getElementById("dropdown").classList.toggle("show"); }
@@ -27,18 +29,23 @@ window.onclick = function(event)
         dropdowns = document.getElementsByClassName( 'dropdown-content' );
         for ( var i = 0; i < dropdowns.length; i++ ) { if ( dropdowns[i].classList.contains('show') ) { dropdowns[i].classList.remove('show'); } }
     }
-}
+};
+// pause track when over
 track1.addEventListener('ended', () =>
 {
     document.body.style.animationPlayState = 'paused';
-    control.innerHTML = 'play again?';
+    control.innerHTML = 'i\'m feeling lucky';
     console.log('ended');
 }, false );
+// on click of pause/play button
 control.addEventListener('click', () => 
 {
+    // if lucky, pick random song
     if ( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.floor( Math.random() * 6 ) ] ).innerHTML ); }
+    // if suspended, unsuspend
     if ( t1ctx.state === 'suspended' && !stems ) { t1ctx.resume(); }
     else if ( t1ctx.state ==='suspended' && t2ctx.state ==='suspended' && stems ) { t1ctx.resume(); t2ctx.resume(); }
+    // if paused, play
     else if ( control.innerHTML === 'play!' )
     {
         document.body.style.animationPlayState = 'running';
@@ -47,6 +54,7 @@ control.addEventListener('click', () =>
         else { track1.play(); }
         console.log('play');
     }
+    // if playing, pause
     else if ( control.innerHTML === 'pause!' )
     {
         document.body.style.animationPlayState = 'paused';
@@ -56,6 +64,7 @@ control.addEventListener('click', () =>
         console.log('pause');
     }
 }, false );
+// bpm slider
 slider.addEventListener('input', (e) =>
 {
     console.log(slider.value)
@@ -63,6 +72,7 @@ slider.addEventListener('input', (e) =>
     else { track1.playbackRate = slider.value / bpm; }
     slabel.innerHTML = slider.value + ' bpm';
 }, false );
+// set song
 function setsong(title)
 {
     document.getElementById('bpm-slider').style.display = 'block';
@@ -169,7 +179,8 @@ function setsong(title)
         t2width = canvas.width / t2buff;
     }
     animate();
-}
+};
+// animate vis
 function animate()
 {
     if ( control.innerHTML === 'pause!' )
