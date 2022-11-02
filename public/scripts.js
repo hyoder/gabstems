@@ -58,11 +58,10 @@ control.addEventListener('click', () =>
 }, false );
 slider.addEventListener('input', (e) =>
 {
-    console.log(e)
-    console.log(e.target)
-    if( stems ) { track1.playbackRate = parseFloat( e / bpm ); track2.playbackRate = parseFloat( e / bpm ); }
-    else { track1.playbackRate = parseFloat( e / bpm ); }
-    slabel.innerHTML = e + ' bpm';
+    console.log(slider.value)
+    if( stems ) { track1.playbackRate = slider.value / bpm ; track2.playbackRate = slider.value / bpm; }
+    else { track1.playbackRate = slider.value / bpm; }
+    slabel.innerHTML = slider.value + ' bpm';
 }, false );
 function setsong(title)
 {
