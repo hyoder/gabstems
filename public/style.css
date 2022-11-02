@@ -3,12 +3,14 @@ body { animation: scrolling 5s linear infinite; animation-play-state: paused; ov
 button { display: inline-block; font-size: 24px; height: 50px; width: 210px; }
 td { height: 25px; width: 210px; }
 table { margin-left: auto; margin-right: auto; }
+h5 { padding: 10px; }
 #bpm-slider { margin-left: auto; margin-right: auto; position: relative; top: 60%;}
 #canvas { position: absolute; }
 #inputtable { margin: auto; transform: translate(0,225px); width: 210px; }
 #meta
 {
     background-color: rgba(150,150,150,.3);
+    border-radius: 10px;
     font-family: 'Source Code Pro', monospace;
     margin-left: auto;
     margin-right: auto;
@@ -24,6 +26,8 @@ table { margin-left: auto; margin-right: auto; }
 .dropbtn 
 {
     background-color: grey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     color: black;
     font-family: 'Source Code Pro', monospace;
     font-size: 32px;
