@@ -3,7 +3,8 @@ const  canvas = document.getElementById( "canvas" ),
           ctx = canvas.getContext('2d'),
           tbl = document.getElementById( 'inputtbl' ),
        inputs = ["i01","i02","i03","i04","i05","i06"],
-       slider = document.getElementById( 'sp' );
+       slider = document.getElementById( 'sp' ),
+       slabel = document.getElementById( 'splabel' );
 let    track1 = new Audio(),
        track2 = new Audio(),
         t1ctx = new window.AudioContext(),
@@ -54,6 +55,12 @@ control.addEventListener('click', () =>
         else { track1.pause(); }
         console.log('pause');
     }
+}, false );
+slider.addEventListener('input', (e) =>
+{
+    if( stems ) { track1.playbackRate = e / bpm; track2.playbackRate = e / bpm; }
+    else { track1.playbackRate = e / bpm; }
+    slabel.innerHTML = e + ' bpm';
 }, false );
 function setsong(title)
 {
@@ -138,6 +145,8 @@ function setsong(title)
             document.getElementById("ytlink").href = "https://www.youtube.com/channel/UCrVlEhANXP_w4SuGiXHHlZA/";
             break;
     }
+    slider.value = bpm;
+    slabel.innerHTML = bpm + ' bpm';
     t1src  = t1ctx.createMediaElementSource( track1 ),
     t1anal = t1ctx.createAnalyser();
     t1src.connect( t1anal );
@@ -157,7 +166,7 @@ function setsong(title)
         t2data  = new Uint8Array( t2buff ),
         t2width = canvas.width / t2buff;
     }
-    animate(); 
+    animate();
 }
 function animate()
 {

@@ -10,7 +10,8 @@ h5 { padding: 10px; }
     margin-right: auto;
     margin-top: 23vh;
     position: relative;
-    transform: translate(-50%,0)
+    transform: translate(-50%,0);
+    text-align: center;
 }
 #canvas { position: absolute; }
 #inputtable { margin: auto; transform: translate(0,225px); width: 210px; }
