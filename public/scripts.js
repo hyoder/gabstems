@@ -42,8 +42,8 @@ track1.addEventListener('ended', () =>
     control.innerHTML = 'i\'m feeling lucky';
     console.log('ended');
 }, false );
-track1.addEventListener('canplaythrough', () => { t1ready = true; }, false );
-track2.addEventListener('canplaythrough', () => { t2ready = true; }, false );
+track1.addEventListener('canplaythrough', () => { console.log('t1ready'); t1ready = true; }, false );
+track2.addEventListener('canplaythrough', () => { console.log('t2ready'); t2ready = true; }, false );
 // on click of pause/play button
 control.addEventListener('click', () => 
 {
