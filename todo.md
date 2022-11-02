@@ -1,0 +1,4 @@
+- make tempo slider actually work w/bpm and show live label
+- custom color scheme by song for vis and ui
+- fix overflow
+- make stems toggle-able
