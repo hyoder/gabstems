@@ -1,3 +1,6 @@
+// color schema for diff songs
+// array = [ vis color, metadiv background, metadiv opacity, songselect color, songselect hover color ]
+
 const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
@@ -11,7 +14,9 @@ let    track1 = new Audio(),
         t2ctx = new window.AudioContext(),
         stems = false,
         speed = 1,
-          bpm = 0;
+          bpm = 0,
+      t1ready = false,
+      t2ready = false;
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -37,6 +42,8 @@ track1.addEventListener('ended', () =>
     control.innerHTML = 'i\'m feeling lucky';
     console.log('ended');
 }, false );
+track1.addEventListener('canplaythrough', () => { t1ready = true; }, false );
+track2.addEventListener('canplaythrough', () => { t2ready = true; }, false );
 // on click of pause/play button
 control.addEventListener('click', () => 
 {
@@ -50,7 +57,13 @@ control.addEventListener('click', () =>
     {
         document.body.style.animationPlayState = 'running';
         control.innerHTML = 'pause!';
-        if ( stems ) { track1.play(); track2.play(); }
+        while ( t1ready = false ) {}
+        if ( stems )
+        {
+            while ( t2ready = false ) {}
+            track1.play();
+            track2.play();
+        }
         else { track1.play(); }
         console.log('play');
     }
@@ -83,10 +96,12 @@ function setsong(title)
         else { track1.pause(); }
     }
     control.innerHTML = 'play!';
-    track1 = new Audio(),
-    track2 = new Audio(),
-    t1ctx = new window.AudioContext(),
-    t2ctx = new window.AudioContext();
+    track1  = new Audio(),
+    track2  = new Audio(),
+    t1ctx   = new window.AudioContext(),
+    t2ctx   = new window.AudioContext(),
+    t1ready = false,
+    t2ready = false;
     console.log(title);
     document.getElementById("dropbtn").innerHTML = title;
     switch( title )
