@@ -1,4 +1,5 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
+a { z-index: 2; }
 body
 {
     animation: scrolling 5s linear infinite;
@@ -10,7 +11,6 @@ body
 button { display: inline-block; font-size: 24px; height: 50px; width: 210px; }
 td { height: 25px; width: 210px; }
 table { margin-left: auto; margin-right: auto; }
-h5 { padding: 10px; }
 #ctrl
 { 
     margin-left: 50vw;
@@ -33,7 +33,7 @@ h5 { padding: 10px; }
     top: 22%;
     vertical-align: middle;
     width: 50%;
-    z-index: 10;
+    z-index: 3;
 }
 #sp { padding: 15px; width: 85%; }
 #splabel
@@ -51,10 +51,12 @@ h5 { padding: 10px; }
     padding: 10px;
     position: fixed;
     text-align: center;
+    width: 100%;
+    z-index: 0;
 }
 #t1btn { display: none; height: 25%; }
 #t2btn { display: none; height: 25%; }
-#vis { position: absolute; top: 0; left: 0; }
+#vis { position: absolute; left: 0; top: 0; z-index: 1; }
 .bpm-holder
 {
     display: inline-block;
@@ -82,7 +84,7 @@ h5 { padding: 10px; }
     display: none;
     min-width: 160px;
     position: absolute;
-    z-index: 11;
+    z-index: 4;
 }
 .dropdown-content p
 {
