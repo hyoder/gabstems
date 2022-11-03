@@ -85,14 +85,14 @@ t1btn.addEventListener( 'click', () =>
     if( t1state )
     {
         t1div.innerHTML = 'on';
-        t1div.style.backgroundColor = '#17ad49';
+        t1div.style.backgroundColor = 'rgba(23,173,73,0.8)';
         t1div.style.color = '#073316';
         track1.volume = 1;
     }
     else
     {
         t1div.innerHTML = 'off';
-        t1div.style.backgroundColor = '#b50e02';
+        t1div.style.backgroundColor = 'rgba(181,14,2,0.8)';
         t1div.style.color = '#400300'
         track1.volume = 0;
     }
@@ -104,14 +104,14 @@ t2btn.addEventListener( 'click', () =>
     if( t2state )
     {
         t2div.innerHTML = 'on';
-        t2div.style.backgroundColor = '#17ad49';
+        t2div.style.backgroundColor = 'rgba(23,173,73,0.8)';
         t2div.style.color = '#073316';
         track2.volume = 1;
     }
     else
     {
         t2div.innerHTML = 'off';
-        t2div.style.backgroundColor = '#b50e02';
+        t2div.style.backgroundColor = 'rgba(181,14,2,0.8)';
         t2div.style.color = '#400300';
         track2.volume = 0;
     }
