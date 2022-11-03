@@ -5,12 +5,13 @@
 const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
-          tbl = document.getElementById( 'inputtbl' ),
        inputs = ["i01","i02","i03","i04","i05","i06"],
        slider = document.getElementById( 'sp' ),
        slabel = document.getElementById( 'splabel' ),
         t1btn = document.getElementById( 't1btn' ),
-        t2btn = document.getElementById( 't2btn' );
+        t2btn = document.getElementById( 't2btn' ),
+        t1div = document.getElementById( 't1div' ),
+        t2div = document.getElementById( 't2div' );
 let    track1 = new Audio(),
        track2 = new Audio(),
         t1ctx = new window.AudioContext(),
@@ -18,9 +19,9 @@ let    track1 = new Audio(),
         stems = false,
         speed = 1,
           bpm = 0,
-      t1ready = false,
-      t2ready = false,
-     viscolor = '#000000';
+     viscolor = '#000000',
+      t1state = 0,
+      t2state = 0;
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -46,8 +47,6 @@ track1.addEventListener('ended', () =>
     control.innerHTML = 'i\'m feeling lucky';
     console.log('ended');
 }, false );
-track1.addEventListener('canplaythrough', () => { console.log('t1ready'); t1ready = true; }, false );
-track2.addEventListener('canplaythrough', () => { console.log('t2ready'); t2ready = true; }, false );
 // on click of pause/play button
 control.addEventListener('click', () => 
 {
@@ -61,10 +60,8 @@ control.addEventListener('click', () =>
     {
         document.body.style.animationPlayState = 'running';
         control.innerHTML = 'pause!';
-        // while ( t1ready === false ) {}
         if ( stems )
         {
-            // while ( t2ready === false ) {}
             track1.play();
             track2.play();
         }
@@ -81,6 +78,40 @@ control.addEventListener('click', () =>
         console.log('pause');
     }
 }, false );
+// track 1 stem control
+t1btn.addEventListener( 'click', () =>
+{
+    t1state = 1 - t1state;
+    if( t1state )
+    {
+        t1btn.innerHTML = '<div id="t1div" />track 1: on';
+        t1div.style.backgroundColor = '#17ad49';
+        track1.volume = 1;
+    }
+    else
+    {
+        t1btn.innerHTML = '<div id="t1div" />track 1: off';
+        t1div.style.backgroundColor = '#8a0a03';
+        track1.volume = 0;
+    }
+} );
+// track 2 stem control
+t2btn.addEventListener( 'click', () =>
+{
+    t2state = 1 - t2state;
+    if( t2state )
+    {
+        t2btn.innerHTML = '<div id="t2div" />track 2: on';
+        t2div.style.backgroundColor = '#17ad49';
+        track2.volume = 1;
+    }
+    else
+    {
+        t2btn.innerHTML = '<div id="t2div" />track 2: off';
+        t2div.style.backgroundColor = '#8a0a03';
+        track2.volume = 0;
+    }
+} );
 // bpm slider
 slider.addEventListener('input', (e) =>
 {
@@ -89,15 +120,6 @@ slider.addEventListener('input', (e) =>
     else { track1.playbackRate = slider.value / bpm; }
     slabel.innerHTML = slider.value + ' bpm';
 }, false );
-// set color scheme
-/*
-function setcolors ( array )
-{
-    viscolor = array[0];
-    document.getElementById('dropbtn').style.backgroundColor = array[1];
-    document.styleSheets
-}
-*/
 // set song
 function setsong(title)
 {
@@ -113,8 +135,6 @@ function setsong(title)
     track2  = new Audio(),
     t1ctx   = new window.AudioContext(),
     t2ctx   = new window.AudioContext(),
-    t1ready = false,
-    t2ready = false;
     console.log(title);
     document.getElementById("dropbtn").innerHTML = title;
     switch( title )
@@ -207,6 +227,8 @@ function setsong(title)
         t2width = canvas.width / t2buff;
         t1btn.style.display = 'block';
         t2btn.style.display = 'block';
+        t1div.style.backgroundColor = '#17ad49';
+        t2div.style.backgroundColor = '#17ad49';
     }
     else
     {

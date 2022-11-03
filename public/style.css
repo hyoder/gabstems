@@ -14,7 +14,6 @@ h5 { padding: 10px; }
     text-align: center;
 }
 #canvas { position: absolute; }
-#inputtable { margin: auto; transform: translate(0,225px); width: 210px; }
 #meta
 {
     background-color: rgba(255,255,255,.6);
@@ -65,6 +64,19 @@ h5 { padding: 10px; }
     text-align: center;
     text-decoration: none;
 }
-.dropdown-content p:hover {background-color: #ddd;}
+.dropdown-content p:hover { background-color: #ddd; }
+.onoff
+{
+    width: 20%;
+    padding: 1px 2px 3px 3px;
+    font-family: 'Source Code Pro', monospace;
+    text-align: center;
+    background-color: #acacac;
+}
+.onoff div
+{
+    height: 5%;
+    width: 5%;
+}
 .show { display: inline-block; }
 @keyframes scrolling { from { background-position: 0 0; } to { background-position: 0px -500px;} }
