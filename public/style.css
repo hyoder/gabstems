@@ -1,5 +1,12 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { animation: scrolling 5s linear infinite; animation-play-state: running; background-color: #001312; overflow: hidden; }
+body
+{
+    animation: scrolling 5s linear infinite;
+    animation-play-state: running; background-color: #001312;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
 button { display: inline-block; font-size: 24px; height: 50px; width: 210px; }
 td { height: 25px; width: 210px; }
 table { margin-left: auto; margin-right: auto; }
