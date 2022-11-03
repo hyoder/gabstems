@@ -219,6 +219,7 @@ function setsong(title)
     t1buff  = t1anal.frequencyBinCount,
     t1data  = new Uint8Array( t1buff ),
     t1width = canvas.width / t1buff;
+    track1.volume = 1;
     if ( stems )
     {
         t2src  = t2ctx.createMediaElementSource( track2 )
