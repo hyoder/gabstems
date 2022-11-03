@@ -29,13 +29,13 @@ h5 { padding: 10px; }
     width: 50%;
     z-index: 10;
 }
-#sp { width: 210px; height: 25px; }
+#sp { padding-top: 15px; width: 85%; }
 #splabel
 {
-    background-color:rgba(255,255,255,.8);
+    background-color:rgba(175,175,175,.8);
     font-family: 'Source Code Pro', monospace;
     font-size: 24px;
-    text-align:center;
+    text-align: center;
 }
 #t1btn { display: none; height: 25%; }
 #t2btn { display: none; height: 25%; }
