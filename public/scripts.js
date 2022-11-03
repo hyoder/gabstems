@@ -20,8 +20,8 @@ let    track1 = new Audio(),
         speed = 1,
           bpm = 0,
      viscolor = '#000000',
-      t1state = 0,
-      t2state = 0;
+      t1state = 1,
+      t2state = 1;
 var t1src, t1anal, t1buff, t1data, t1width, t2src, t2anal, t2buff, t2data, t2width;
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -93,7 +93,7 @@ t1btn.addEventListener( 'click', () =>
     {
         t1div.innerHTML = 'off';
         t1div.style.backgroundColor = '#b50e02';
-        t1div.style.color = '#b50e02'
+        t1div.style.color = '#400300'
         track1.volume = 0;
     }
 } );
@@ -112,7 +112,7 @@ t2btn.addEventListener( 'click', () =>
     {
         t2div.innerHTML = 'off';
         t2div.style.backgroundColor = '#b50e02';
-        t2div.style.color = '#b50e02';
+        t2div.style.color = '#400300';
         track2.volume = 0;
     }
 } );

@@ -1,3 +1,3 @@
-- make stems toggle-able
-- custom color scheme by song for vis and ui
-- figure out why stems are out of sync sometimes
+- add link for luca stems
+- maybe:custom color scheme by song for vis and ui
+- idk:figure out why stems are out of sync sometimes
