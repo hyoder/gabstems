@@ -84,14 +84,16 @@ t1btn.addEventListener( 'click', () =>
     t1state = 1 - t1state;
     if( t1state )
     {
-        t1btn.innerHTML = '<div id="t1div" />track 1: on';
+        t1div.innerHTML = 'on';
         t1div.style.backgroundColor = '#17ad49';
+        t1div.style.color = '#073316';
         track1.volume = 1;
     }
     else
     {
-        t1btn.innerHTML = '<div id="t1div" />track 1: off';
-        t1div.style.backgroundColor = '#8a0a03';
+        t1div.innerHTML = 'off';
+        t1div.style.backgroundColor = '#b50e02';
+        t1div.style.color = '#b50e02'
         track1.volume = 0;
     }
 } );
@@ -101,14 +103,16 @@ t2btn.addEventListener( 'click', () =>
     t2state = 1 - t2state;
     if( t2state )
     {
-        t2btn.innerHTML = '<div id="t2div" />track 2: on';
+        t2div.innerHTML = 'on';
         t2div.style.backgroundColor = '#17ad49';
+        t2div.style.color = '#073316';
         track2.volume = 1;
     }
     else
     {
-        t2btn.innerHTML = '<div id="t2div" />track 2: off';
-        t2div.style.backgroundColor = '#8a0a03';
+        t2div.innerHTML = 'off';
+        t2div.style.backgroundColor = '#b50e02';
+        t2div.style.color = '#b50e02';
         track2.volume = 0;
     }
 } );
