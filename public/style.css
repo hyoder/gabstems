@@ -29,7 +29,7 @@ h5 { padding: 10px; }
     width: 50%;
     z-index: 10;
 }
-#sp { padding-top: 15px; width: 85%; }
+#sp { padding: 15px; width: 85%; }
 #splabel
 {
     background-color:rgba(175,175,175,.8);
@@ -49,17 +49,17 @@ h5 { padding: 10px; }
 }
 .dropbtn 
 {
-    background-color: grey;
+    background-color: rgba(125,125,125,1);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    color: black;
+    color: #000000;
     font-family: 'Source Code Pro', monospace;
     font-size: 32px;
     height: 80px;
     padding: 16px;
     width: 100%; 
 }
-.dropbtn:hover, .dropbtn:focus { background-color: lightgrey; }
+.dropbtn:hover, .dropbtn:focus { background-color: rgba(215,215,215,1); }
 .dropdown-content
 {
     background-color: #f1f1f1;
