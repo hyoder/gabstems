@@ -30,8 +30,7 @@ h5 { padding: 10px; }
     margin-right: auto;
     position: relative;
     text-align: center;
-    top: 20%;
-    transform: translate(0,22vh);
+    top: 22%;
     vertical-align: middle;
     width: 50%;
     z-index: 10;
@@ -47,10 +46,11 @@ h5 { padding: 10px; }
 #links
 {
     background-color: rgba(175,175,175,0.8);
+    bottom: 0px;
     font-family: 'Source Code Pro', monospace;
+    padding: 10px;
+    position: fixed;
     text-align: center;
-    top: 100%;
-    transform: translate(0,-100%);
 }
 #t1btn { display: none; height: 25%; }
 #t2btn { display: none; height: 25%; }
