@@ -229,8 +229,8 @@ function setsong(title)
         t2buff  = t2anal.frequencyBinCount,
         t2data  = new Uint8Array( t2buff ),
         t2width = canvas.width / t2buff;
-        t1btn.style.display = 'block';
-        t2btn.style.display = 'block';
+        t1btn.style.display = 'inline-block';
+        t2btn.style.display = 'inline-block';
         t1div.style.backgroundColor = '#17ad49';
         t2div.style.backgroundColor = '#17ad49';
     }
