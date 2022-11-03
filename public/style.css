@@ -1,5 +1,4 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-a { z-index: 2; }
 body
 {
     animation: scrolling 5s linear infinite;
@@ -19,6 +18,7 @@ table { margin-left: auto; margin-right: auto; }
     position: relative;
     transform: translate(-50%,0);
     text-align: center;
+    z-index: 2
 }
 #canvas { position: absolute; }
 #meta
