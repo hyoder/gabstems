@@ -32,6 +32,7 @@ h5 { padding: 10px; }
 #t1btn { display: none; height: 25%; }
 #t2btn { display: none; height: 25%; }
 #vis { position: absolute; top: 0; left: 0; }
+.bpm-holder { display: inline-block; width: 48%; }
 .dropbtn 
 {
     background-color: grey;
@@ -81,5 +82,4 @@ h5 { padding: 10px; }
     width: 100%;
 }
 .show { display: inline-block; }
-.spacer { display: inline-block; width: 48%; }
 @keyframes scrolling { from { background-position: 0 0; } to { background-position: 0px -500px;} }
