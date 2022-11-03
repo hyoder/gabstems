@@ -67,7 +67,7 @@ h5 { padding: 10px; }
 .dropdown-content p:hover { background-color: #ddd; }
 .onoff
 {
-    background-color: #acacac;
+    background-color: rgba(175,175,175,0.8);
     border-radius: 10px;
     font-family: 'Source Code Pro', monospace;
     text-align: center;
@@ -80,5 +80,5 @@ h5 { padding: 10px; }
     width: 100%;
 }
 .show { display: inline-block; }
-.spacer { display: inline-block; width: 50%; }
+.spacer { display: inline-block; width: 48%; }
 @keyframes scrolling { from { background-position: 0 0; } to { background-position: 0px -500px;} }
