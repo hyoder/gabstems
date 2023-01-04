@@ -217,7 +217,7 @@ function setsong(title)
             document.getElementById("splink").href = "https://open.spotify.com/track/2rY3hyiGbEc8lDbP6ZGVoR?si=a86f56a51ec643a0";
             document.getElementById("ytlink").href = "https://youtu.be/9Pw3d_yhiIE";
             break;
-        case 'savvy & optimism alley':
+        case 'savvy &amp; optimism alley':
             stems = false;
             bpm = 140;
             track1.src = "./assets/audio/savvy.mp3";
