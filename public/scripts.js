@@ -5,7 +5,7 @@
 const  canvas = document.getElementById( "canvas" ),
       control = document.getElementById( "playbutton" ),
           ctx = canvas.getContext('2d'),
-       inputs = ["i01","i02","i03","i04","i05","i06"],
+       inputs = ["i01","i02","i03","i04","i05","i06","i07","i08","i09","i10","i11","i12","i13"],
        slider = document.getElementById( 'sp' ),
        slabel = document.getElementById( 'splabel' ),
         t1btn = document.getElementById( 't1btn' ),
@@ -50,7 +50,7 @@ track1.addEventListener('ended', () =>
 control.addEventListener('click', () => 
 {
     // if lucky, pick random song
-    if ( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.floor( Math.random() * 6 ) ] ).innerHTML ); }
+    if ( control.innerHTML === 'i\'m feeling lucky' ) { setsong( document.getElementById( inputs[ Math.floor( Math.random() * 13 ) ] ).innerHTML ); }
     // if suspended, unsuspend
     if ( t1ctx.state === 'suspended' && !stems ) { t1ctx.resume(); }
     else if ( t1ctx.state ==='suspended' && t2ctx.state ==='suspended' && stems ) { t1ctx.resume(); t2ctx.resume(); }
@@ -206,6 +206,76 @@ function setsong(title)
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/source";
             document.getElementById("splink").href = "https://open.spotify.com/artist/33L1klom7IXmoAP8fjrGm9";
             document.getElementById("ytlink").href = "https://www.youtube.com/channel/UCrVlEhANXP_w4SuGiXHHlZA/";
+            break;
+        case 'report back':
+            stems = false;
+            bpm = 135;
+            track1.src = "./assets/audio/report.mp3";
+            document.body.style.background = 'url("./assets/images/report.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/report-back/1644982561?i=1644982562";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/report-back";
+            document.getElementById("splink").href = "https://open.spotify.com/track/2rY3hyiGbEc8lDbP6ZGVoR?si=a86f56a51ec643a0";
+            document.getElementById("ytlink").href = "https://youtu.be/9Pw3d_yhiIE";
+            break;
+        case 'savvy & optimism alley':
+            stems = false;
+            bpm = 140;
+            track1.src = "./assets/audio/savvy.mp3";
+            document.body.style.background = 'url("./assets/images/savvy.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/savvy-optimism-alley/1644982561?i=1644982563";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/savvy";
+            document.getElementById("splink").href = "https://open.spotify.com/track/5u7xVuAT4VYJuLep5bGjUE?si=1c8182696b644be9";
+            document.getElementById("ytlink").href = "https://youtu.be/pQaAPno66Cg";
+            break;
+        case 'ogden':
+            stems = false;
+            bpm = 160;
+            track1.src = "./assets/audio/ogden.mp3";
+            document.body.style.background = 'url("./assets/images/ogden.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/ogden/1644982561?i=1644982564";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/ogden";
+            document.getElementById("splink").href = "https://open.spotify.com/track/6vBVr12Kb7z9qENxpPwrRk?si=e4e0785105fc4cbb";
+            document.getElementById("ytlink").href = "https://youtu.be/FieHOZeKZCY";
+            break;
+        case 'gizmo':
+            stems = false;
+            bpm = 150;
+            track1.src = "./assets/audio/gizmo.mp3";
+            document.body.style.background = 'url("./assets/images/gizmo.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/gizmo/1644982561?i=1644982566";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/gizmo";
+            document.getElementById("splink").href = "https://open.spotify.com/track/1jmbbtmWEn45CnTmNf7bFh?si=61c1413cd1ce49f1";
+            document.getElementById("ytlink").href = "https://youtu.be/-R-VrlVRtvQ";
+            break;
+        case 'welcome to the plant cell bath':
+            stems = false;
+            bpm = 145;
+            track1.src = "./assets/audio/plant.mp3";
+            document.body.style.background = 'url("./assets/images/plant.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/welcome-to-the-plant-cell-bath/1644982561?i=1644982567";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/plantcellbath";
+            document.getElementById("splink").href = "https://open.spotify.com/track/7lmp0TqeQwNfezalGo5jmU?si=9d2263a4084449a6";
+            document.getElementById("ytlink").href = "https://youtu.be/UbEB2lZCPcA";
+            break;
+        case 'the air traffic control tower':
+            stems = false;
+            bpm = 125;
+            track1.src = "./assets/audio/traffic.mp3";
+            document.body.style.background = 'url("./assets/images/traffic.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/the-air-traffic-control-tower/1644982561?i=1644982569";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/air-traffic-control";
+            document.getElementById("splink").href = "https://open.spotify.com/track/7AZrdgVJ3RCk77Z7OQsm2K?si=4b216579542c41bb";
+            document.getElementById("ytlink").href = "https://youtu.be/airuFmX_Ju4";
+            break;
+        case 'i\'m sorry for everything':
+            stems = false;
+            bpm = 170;
+            track1.src = "./assets/audio/sorry.mp3";
+            document.body.style.background = 'url("./assets/images/sorry.jpeg")';
+            document.getElementById("amlink").href = "https://music.apple.com/us/album/im-sorry-for-everything/1644982561?i=1644982573";
+            document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/imsorry";
+            document.getElementById("splink").href = "https://open.spotify.com/track/3NGiqoUlXr0o3ztMPkjVT8?si=4a43af6e9d0947a5";
+            document.getElementById("ytlink").href = "https://youtu.be/YUlOzhi92r8";
             break;
     }
     slider.value = bpm;
