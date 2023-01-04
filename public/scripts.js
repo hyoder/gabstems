@@ -147,6 +147,8 @@ function setsong(title)
             bpm = 105;
             track1.src = "./assets/audio/rock-inst.ogg";
             track2.src = "./assets/audio/rock-vox.ogg";
+            track1.load();
+            track2.load();
             document.body.style.background = 'url("./assets/images/rock.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/rock-music/1609976325?i=1609976326";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/rock-music";
@@ -158,6 +160,8 @@ function setsong(title)
             bpm = 125;
             track1.src = "./assets/audio/mid-inst.ogg";
             track2.src = "./assets/audio/mid-vox.ogg";
+            track1.load();
+            track2.load();
             document.body.style.background = 'url("./assets/images/mid.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/mid/1609976325?i=1609976327";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/mid";
@@ -169,6 +173,8 @@ function setsong(title)
             bpm = 160;
             track1.src = "./assets/audio/sydney-inst.ogg";
             track2.src = "./assets/audio/sydney-vox.ogg";
+            track1.load();
+            track2.load();
             document.body.style.background = 'url("./assets/images/sydney.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/sydney/1609976325?i=1609976328";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/sydney";
@@ -180,6 +186,8 @@ function setsong(title)
             bpm = 152;
             track1.src = "./assets/audio/fractal-inst.ogg";
             track2.src = "./assets/audio/fractal-vox.ogg";
+            track1.load();
+            track2.load();
             document.body.style.background = 'url("./assets/images/fractal.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/the-fractal-song/1609976325?i=1609976329";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/thefractalsong";
@@ -191,6 +199,8 @@ function setsong(title)
             bpm = 98;
             track1.src = "./assets/audio/rainbow-inst.ogg";
             track2.src = "./assets/audio/rainbow-vox.ogg";
+            track1.load();
+            track2.load();
             document.body.style.background = 'url("./assets/images/rainbow.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/rainbow-bridge/1609976325?i=1609976330";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/rainbow-bridge";
@@ -201,6 +211,7 @@ function setsong(title)
             stems = false;
             bpm = 125;
             track1.src = "./assets/audio/source.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/source.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/artist/gabby-start/1588701682";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/source";
@@ -211,6 +222,7 @@ function setsong(title)
             stems = false;
             bpm = 135;
             track1.src = "./assets/audio/report.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/report.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/report-back/1644982561?i=1644982562";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/report-back";
@@ -221,6 +233,7 @@ function setsong(title)
             stems = false;
             bpm = 140;
             track1.src = "./assets/audio/savvy.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/savvy.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/savvy-optimism-alley/1644982561?i=1644982563";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/savvy";
@@ -231,6 +244,7 @@ function setsong(title)
             stems = false;
             bpm = 160;
             track1.src = "./assets/audio/ogden.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/ogden.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/ogden/1644982561?i=1644982564";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/ogden";
@@ -241,6 +255,7 @@ function setsong(title)
             stems = false;
             bpm = 150;
             track1.src = "./assets/audio/gizmo.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/gizmo.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/gizmo/1644982561?i=1644982566";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/gizmo";
@@ -251,6 +266,7 @@ function setsong(title)
             stems = false;
             bpm = 145;
             track1.src = "./assets/audio/plant.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/plant.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/welcome-to-the-plant-cell-bath/1644982561?i=1644982567";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/plantcellbath";
@@ -261,6 +277,7 @@ function setsong(title)
             stems = false;
             bpm = 125;
             track1.src = "./assets/audio/traffic.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/traffic.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/the-air-traffic-control-tower/1644982561?i=1644982569";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/air-traffic-control";
@@ -271,6 +288,7 @@ function setsong(title)
             stems = false;
             bpm = 170;
             track1.src = "./assets/audio/sorry.mp3";
+            track1.load();
             document.body.style.background = 'url("./assets/images/sorry.jpeg")';
             document.getElementById("amlink").href = "https://music.apple.com/us/album/im-sorry-for-everything/1644982561?i=1644982573";
             document.getElementById("sclink").href = "https://soundcloud.com/gabbystart/imsorry";
